@@ -1,15 +1,22 @@
 import psycopg2
 
+from env_variables import USER_NAME, POSTGRES_PASSWORD
 
 # Establish a connection with postgres
-connection = psycopg2.connect(dbname="postgres", user="postgres", password="12345_12345", host="localhost", port="5432")
-connection.autocommit = True
+conn = psycopg2.connect(
+    database="postgres",
+    user=USER_NAME,
+    password=POSTGRES_PASSWORD,
+    host="localhost",
+    port="5432"
+)
+conn.autocommit = True
 
 # Create a cursor to perform database operations
-cursor = connection.cursor()
+cursor = conn.cursor()
 
-#Preparing query to create a database
-sql = "CREATE database sqlalchemy_basics"
+# Preparing query to create a database
+sql = ''' CREATE database sqlalchemy_supers ''';
 
 
 #Creating a database
@@ -17,4 +24,4 @@ cursor.execute(sql)
 print("Database created successfully........")
 
 # Close connection
-connection.close()
+conn.close()

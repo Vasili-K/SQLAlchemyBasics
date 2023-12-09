@@ -1,5 +1,4 @@
 from sqlalchemy import (
-    create_engine,
     MetaData,
     Table,
     String,
@@ -12,9 +11,10 @@ from sqlalchemy import (
 )
 from datetime import datetime
 
+from engine_creation import engine
+
 metadata = MetaData()
 
-engine = create_engine("postgresql+psycopg2://postgres:12345_12345@localhost/sqlalchemy_basics")
 
 customers = Table('customers', metadata,
                   Column('id', Integer(), primary_key=True),

@@ -16,7 +16,7 @@ conn.autocommit = True
 cursor = conn.cursor()
 
 # Preparing query to create a database
-sql = ''' CREATE database sqlalchemy_supers ''';
+sql = ''' CREATE database dc_super_heroes ''';
 
 
 #Creating a database
